@@ -1,0 +1,135 @@
+<!--header-->
+<div class="main-nav">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">
+                <h1><img class="img-responsive" src="../../assets/image/logo.png" alt="logo"></h1>
+            </a>
+            <div class="tagline">
+                <div class="userImage"><img class="img-responsive" src="../../assets/image/login_3.png" /></div>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                    aria-expanded="false">
+                    <span>John</span>
+                </a>
+                <div class="dropdown-menu" onclick="event.stopPropagation();">
+                    <ul class="nav">
+                        <li (click)="Logout()"><a>Logout</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!--/#main-nav-->
+<!--header-->
+<!--main Content-->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                    <div class="row">
+                            <div class="col-md-10">
+                                    <h1>Todo List</h1>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Todo</button>
+                            </div>
+                    </div>
+            </div>
+            <div class="col-md-12 pad-top-50">
+                <table class="table  table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Task</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let todo of TodoList; let $index = index; trackBy: tracktodoList">
+                        <tr title="Click to view full-view" class="clickable" data-toggle="collapse"
+                            [attr.data-target]="'#qwerty' + $index" aria-expanded="false"
+                            aria-controls="group-of-rows-1">
+                            <td class="flag">{{$index+1}}</td>
+                            <td class="title">{{todo.title}}</td>
+                            <td class="description">{{todo.description}}</td>
+                            <td class="status" ><span class="{{statusValue[todo.status]}}">{{statusValue[todo.status] | titlecase}}</span></td>
+                            <div class="float-menu">
+                                <ul class="menu">
+                                    <li>
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                                            aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog"></i></a>
+
+                                        <div class="dropdown-menu" onclick="event.stopPropagation();">
+                                            <ul class="nav-edit">
+                                                <li *ngFor="let value of statusValue; let $indexe= index"
+                                                    (click)="changeStatus($index, $indexe)"><a>{{value}}</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li><a (click)="deleteTodo($index)" onclick="event.stopPropagation();"><i class="fa fa-trash"></i></a></li>
+                                </ul>
+                            </div>
+                        </tr>
+                        <tr id="qwerty{{$index}}" class="collapse">
+                            <td colspan="4">
+                                <h2>{{todo.title}}</h2>
+                                <p>{{todo.description}}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!--main Content-->
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+      
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Add Todo List</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                    <form class="innerLoginForm" [formGroup]="TodoForm" enctype="multipart/form-data" novalidate="">
+                        <div class="form-group">
+                            <input class="form-control input-lg " formControlName="title" name="title" placeholder="Title" required=""
+                                type="text">
+                            <div class="error"
+                                *ngIf="TodoForm.controls['title'].invalid && (TodoForm.controls['title'].dirty || TodoForm.controls['title'].touched)">
+                                <div *ngIf="TodoForm.controls['title'].errors.required"> Please enter your title </div>
+                            </div>
+                        </div>
+                    
+                        <div class="form-group">
+                            <textarea class="form-control" rows="8" formControlName="description" name="title" placeholder="Description"
+                                required="" type="text"></textarea>
+                            <div class="error"
+                                *ngIf="TodoForm.controls['description'].invalid && (TodoForm.controls['description'].dirty || TodoForm.controls['description'].touched)">
+                                <div *ngIf="TodoForm.controls['description'].errors.required"> Please enter your description </div>
+                            </div>
+                        </div>
+                    
+                        
+                    </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-info btn-lg" (click)="AddTodoService()"  type="submit"
+                                >Add Todo</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+
+
+

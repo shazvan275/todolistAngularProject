@@ -1,0 +1,145 @@
+/*
+  Theme Name: mytheme
+  Author: shazvanhanif
+  Description: angularTodoList
+  Version: 1.0
+*/
+
+/*************************
+*******Typography******
+**************************/
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #666;
+  background-color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+}
+
+h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+
+.btn {
+  border: 0;
+  border-radius: 0;
+}
+
+
+
+.navbar-nav li a:hover,
+.navbar-nav li a:focus {
+  outline:none;
+  outline-offset: 0;
+  text-decoration:none;
+  background: transparent;
+}
+
+a {
+  text-decoration: none;
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  -o-transition: 300ms;
+  transition: 300ms;
+  color: #071535;
+}
+
+a:focus,
+a:hover {
+  text-decoration: none;
+  outline: none;
+  color: #071535;
+}
+
+section {
+  padding: 90px 0;
+}
+
+.heading {
+  padding-bottom:90px;
+}
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999999;
+  background: #fff;
+}
+
+.preloader > i {
+  position: absolute;
+  font-size: 36px;
+  line-height: 36px;
+  top: 50%;
+  left: 50%;
+  height: 36px;
+  width: 36px;
+  margin-top: -15px;
+  margin-left: -15px;
+  display: inline-block;
+}
+.box-shadow{
+  box-shadow: 0 3px 3px -2px rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 1px 8px 0 rgba(0,0,0,.12);
+}
+.error{
+  color: red;
+}
+input.form-control, textarea.form-control {
+  height: 52px;
+  border: 0px;
+  border-radius: 0px;
+  border-bottom: 2px solid #ccc;
+}
+input.form-control:focus, textarea.form-control:focus {
+  box-shadow: none;
+  border-color: #071535;
+}
+.btn-primary {
+  height: 52px;
+  background-color: #071535;
+  background: #071535;
+}
+.btn.btn-primary:hover {
+  background-color: #071535;
+  background: #071535;
+}
+.btn-primary.disabled, .btn-primary:disabled {
+  color: #fff;
+  background-color: #a7a9ac;
+  border-color: #a7a9ac;
+}
+.menu .dropdown-menu{
+  padding: 15px;
+}
+
+.modal-dialog {
+  margin: 10.75rem auto !important;
+}
+
+td.status span {
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+}
+td.status span.created {background: #071535}
+td.status span.working {background: yellowgreen}
+td.status span.finished {background:green}
+td.status span.cancelled {background:red}
+
+.swal2-styled.swal2-confirm {
+  background-color: #071535 !important;
+}

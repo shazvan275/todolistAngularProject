@@ -1,0 +1,72 @@
+<section id="Login-page">
+    <div class="material-4 box-shadow">
+        <h2>{{isRegister?"Sign in":"Sign Up"}}</h2>
+        <h4>WITH YOUR EMAIL ACCOUNT</h4>
+        <div class="userImage-big"></div>
+
+        <!--Stat of Login Template-->
+        <form class="innerLoginForm" [formGroup]="LoginForm" enctype="multipart/form-data" novalidate=""
+            *ngIf='isRegister' [@FadeOutAnimation]>
+            <div class="form-group">
+                <input class="form-control input-lg " formControlName="username" name="username" placeholder="Username"
+                    required="" type="text">
+                <div class="error"
+                    *ngIf="LoginForm.controls['username'].invalid && (LoginForm.controls['username'].dirty || LoginForm.controls['username'].touched)">
+                    <div *ngIf="LoginForm.controls['username'].errors.required"> Please enter your username </div>
+                </div>
+            </div>
+            <div class="form-group has-feedback">
+                <input class="form-control input-lg " formControlName="password" name="password" placeholder="Password"
+                    type="password">
+                <div class="error"
+                    *ngIf="LoginForm.controls['password'].invalid && (LoginForm.controls['password'].dirty || LoginForm.controls['password'].touched)">
+                    <div *ngIf="LoginForm.controls['password'].errors.required"> Please enter your password </div>
+                </div>
+            </div>
+            <div class="form-group succes-btn">
+                <button class="btn btn-block btn-primary" (click)="loginService()" [disabled]="!LoginForm.valid"
+                    type="submit" disabled="">SIGN IN</button>
+            </div>
+        </form>
+        <!--end of Login Template-->
+        <!--Stat of Register Template-->
+        <form class="innerLoginForm" [formGroup]="RegistorForm" enctype="multipart/form-data" novalidate=""
+            *ngIf='!isRegister' [@FadeOutAnimation]>
+            <div class="form-group">
+                <input class="form-control input-lg " formControlName="username" name="username" placeholder="Username"
+                    required="" type="text">
+                <div class="error"
+                    *ngIf="RegistorForm.controls['username'].invalid && (RegistorForm.controls['username'].dirty || RegistorForm.controls['username'].touched)">
+                    <div *ngIf="RegistorForm.controls['username'].errors.required"> Please enter your username </div>
+                </div>
+            </div>
+            <div class="form-group has-feedback">
+                <input class="form-control input-lg " formControlName="password" name="password" placeholder="Password"
+                    type="password">
+                <div class="error"
+                    *ngIf="RegistorForm.controls['password'].invalid && (RegistorForm.controls['password'].dirty || RegistorForm.controls['password'].touched)">
+                    <div *ngIf="RegistorForm.controls['password'].errors.required"> Please enter your password </div>
+                </div>
+            </div>
+            <div class="form-group has-feedback">
+                <input class="form-control input-lg " formControlName="repassword" name="password"
+                    placeholder="Re-Password" type="password">
+                <div class="error"
+                    *ngIf="RegistorForm.controls['repassword'].invalid && (RegistorForm.controls['repassword'].dirty || RegistorForm.controls['repassword'].touched)">
+                    <div *ngIf="RegistorForm.controls['repassword'].errors.required"> Please enter your password </div>
+                </div>
+                <div class="error" *ngIf="RegistorForm.hasError('notSame')">
+                    Passwords do not match
+                </div>
+            </div>
+            <div class="form-group succes-btn">
+                <button class="btn btn-block btn-primary" (click)="registerService()" [disabled]="!RegistorForm.valid"
+                    type="submit" disabled="">SIGN UP</button>
+            </div>
+        </form>
+        <!--end of Register Template-->
+
+        <h5>{{isRegister?"Don’t have an account?":"Already have an account?"}} <a
+                (click)='isRegister = !isRegister'>{{isRegister?"Sign Up":"Sign in"}}</a></h5>
+    </div>
+</section>

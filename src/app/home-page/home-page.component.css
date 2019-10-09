@@ -1,0 +1,105 @@
+.main-nav {
+    background: #a7a9ac;
+}
+.tagline {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    cursor: pointer;
+}
+.userImage {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    right: 65px;
+    overflow: hidden;
+    z-index: 9999;
+}
+.userImage img{
+  width:100%;
+}
+.tagline a.dropdown-toggle span {
+    color: #fff;
+}
+.tagline .dropdown-toggle::after {
+    display: inline-block;
+    margin-left: .255em;
+    vertical-align: 0.20em;
+    content: "";
+    border-top: .3em solid #fff;
+    border-right: .3em solid transparent;
+    border-bottom: 0 solid #fff;
+    border-left: .3em solid transparent;
+}
+.tagline .dropdown-menu.show {
+    right: 0px !important;
+    top: 25px !important;
+    left: auto !important;
+    padding: 15px;
+    width: 225px;
+    transform: none !important;
+}
+.tagline .nav li {
+    width: 100%;
+}
+tbody.collapse.in {
+  display: table-row-group;
+}
+.clickable td.flag{
+     max-width: 15px !important;
+}
+.clickable td.title, .clickable td.description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 50px !important;
+}
+tr.clickable {
+    position: relative;
+}
+.float-menu {
+    position: absolute;
+    width: 80px;
+    right: 15px;
+    height: 29%;
+    display: none;
+}
+ul.menu {
+    list-style: none;
+    display: contents;
+}
+.menu > li {
+    display: inline-block;
+    margin: 15px 10px;
+    cursor: pointer;
+}
+tr.clickable:hover .float-menu {
+    display: block;
+}
+.menu .dropdown-menu.show {
+    padding: 15px;
+    right: 0px !important;
+    left: auto !important;
+    top: 35px !important;
+    transform: none !important;
+}
+.menu .dropdown-menu li {
+    display: flex;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    text-transform: capitalize;
+    padding: 5px 0px;
+}
+.nav-edit{
+    text-align: left;
+    cursor: pointer;
+    display: contents;
+}
+.pad-top-50{
+    padding-top: 20px;
+}
+button.btn.btn-info.btn-lg {
+    background: #071535;
+}
